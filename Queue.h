@@ -2,9 +2,7 @@
 #define Queue_h
 
 // Declaring the template type to make this class a template class
-template <class Type>
-
-class Queue {
+template <class Type> class Queue {
 
 private:
   /*
@@ -12,14 +10,14 @@ private:
     This will later be used as a pointer to an array
   */
   Type *queueArray;
-  int size;
+  int length;
   int arrayIndex;
 
 public:
   Queue(int size);
   ~Queue();
 
-  void enqueue(Type x);
+  void enqueue(Type newArrayElement);
 
   /*
     Declaring a method with "Type" to use for removing elements from a "Type"

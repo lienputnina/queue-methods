@@ -1,24 +1,24 @@
 // Queue class implementation file
 #include "Queue.h"
-#include <cstddef>
 #include <iostream>
 using namespace std;
 
-template <class Type> Queue<Type>::Queue(int queueSize) {
+template <class Type> Queue<Type>::Queue(int queueArrayLength) {
 
   /*
   Allocating memory for Queue class object. This object will be an array with
   the size the user will provide.
   */
-  queueArray = new Type[queueSize]{};
-  // Add a more modern check, perhaps
-  // Adding a check to see, if the memory is full
-  if (queueArray == NULL) {
-    cout << "Not enough memory. Program is shutting down." << endl;
-  };
+  queueArray = new Type[queueArrayLength]{};
 
-  size = queueSize;
-  arrayIndex = 0;
+  // Adding a check to see, if the memory is full. Mb mention the nullptr
+  if (queueArray == nullptr) {
+    cout << "Not enough memory. Program is shutting down." << endl;
+    exit(1); // Exiting the program if memory allocation fails
+
+    length = queueArrayLength;
+    arrayIndex = 0;
+  };
 };
 
 template <class Type> Queue<Type>::~Queue() {
@@ -29,17 +29,6 @@ template <class Type> Queue<Type>::~Queue() {
   delete[] queueArray;
 };
 
-template <class Type>
-void Queue<Type>::enqueue(Type x){
-    // some code
-};
+template <class Type> void Queue<Type>::enqueue(Type newArrayElement){};
 
-template <class Type>
-Type Queue<Type>::dequeue(){
-    // some code
-};
-
-template <class Type>
-void Queue<Type>::PrintQueue(){
-    // some code
-};
+template <class Type> Type Queue<Type>::dequeue(){};
