@@ -25,6 +25,8 @@ public:
   */
   Type dequeue();
 
+  bool isArrayFull() const;
+
   void PrintQueue();
 };
 

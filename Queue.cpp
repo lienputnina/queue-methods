@@ -29,6 +29,24 @@ template <class Type> Queue<Type>::~Queue() {
   delete[] queueArray;
 };
 
-template <class Type> void Queue<Type>::enqueue(Type newArrayElement){};
+template <class Type> bool Queue<Type>::isArrayFull() const {
+  return arrayIndex == length;
+};
+
+template <class Type> void Queue<Type>::enqueue(Type newArrayElement) {
+  // Checking, if the array is full to see whether a new element can be added
+  if (isArrayFull()) {
+    cout << "Queue is full" << endl;
+    return;
+  } else {
+    /*
+    Adding a new element at the curent position of arrayIndex.
+    If arrayIndex = 0, the element is added to position 0 (first), if arrayIndex
+    = 1, the element is added to second position, etc. (write this better)
+    */
+    queueArray[arrayIndex] = newArrayElement;
+    arrayIndex++;
+  }
+};
 
 template <class Type> Type Queue<Type>::dequeue(){};
