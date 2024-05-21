@@ -2,15 +2,15 @@
 #include <iostream>
 using namespace std;
 
-template <class Type> Queue<Type>::Queue(int queueArrayLength) {
+template <class Type> Queue<Type>::Queue(int queueArraySize) {
 
-  length = queueArrayLength;
-  arrayIndex = 0;
+  arraySize = queueArraySize;
+  elementCount = 0;
   /*
   Allocating memory for Queue class object. This object will be an array with
   the size the user will provide.
   */
-  queueArray = new Type[queueArrayLength];
+  queueArray = new Type[queueArraySize];
 
   // Adding a check to see, if the memory is full. Mb mention the nullptr
   if (queueArray == nullptr) {
@@ -28,26 +28,25 @@ template <class Type> Queue<Type>::~Queue() {
 };
 
 template <class Type> bool Queue<Type>::isArrayFull() const {
-  return arrayIndex == length;
+  return elementCount >= arraySize;
 }
 
-template <class Type> void Queue<Type>::enqueue(Type newArrayElement) {
+template <class Type> void Queue<Type>::enqueue(Type x) {
   // Checking, if the array is full to see whether a new element can be added
   if (isArrayFull()) {
-    cout << "Queue is full" << endl;
-    return;
+    cout << "Queue is full. Cannot add any more elements." << endl;
   } else {
     /*
     Adding a new element at the curent position of arrayIndex.
     If arrayIndex = 0, the element is added to position 0 (first), if arrayIndex
     = 1, the element is added to second position, etc. (write this better)
     */
-    queueArray[arrayIndex++] = newArrayElement;
-  }
+    queueArray[elementCount++] = x;
+  };
 };
 
 template <class Type> Type Queue<Type>::dequeue() {
-  if (length == 0) {
+  if (arraySize == 0) {
     cout << "Queue empty. Nothing to remove" << endl;
   } else {
     /*
@@ -55,15 +54,17 @@ template <class Type> Type Queue<Type>::dequeue() {
     the current element. This will shift all elements to the left, essentially
     "deleting" the first element.
     */
-    for (int i = 0; i < length - 1; i++) {
+    for (int i = 0; i < arraySize - 1; i++) {
       queueArray[i] = queueArray[i + 1];
     };
+
+    elementCount--;
   };
 };
 
 template <class Type> void Queue<Type>::PrintQueue() {
-  for (int i = 0; i < length; i++) {
+  for (int i = 0; i < arraySize; i++) {
     cout << queueArray[i] << " ";
-    cout << endl;
   };
+  cout << "\n";
 };

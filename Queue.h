@@ -10,23 +10,26 @@ private:
     This will later be used as a pointer to an array
   */
   Type *queueArray;
-  int length;
-  int arrayIndex;
+  int arraySize;
+  int elementCount;
 
 public:
-  Queue(int size);
+  Queue(int arraySize);
   ~Queue();
 
-  void enqueue(Type newArrayElement);
+  /*
+     Declaring a method with "Type" as a parameter to work with different array
+     types!
+   */
+  void enqueue(Type x);
 
   /*
     Declaring a method with "Type" to use for removing elements from a "Type"
-    object.
+    object. to work with different array types!
   */
   Type dequeue();
 
   void PrintQueue();
-
   bool isArrayFull() const; // Method for checking, if the array is full
 };
 
