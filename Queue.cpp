@@ -1,4 +1,3 @@
-// Queue class implementation file
 #include "Queue.h"
 #include <iostream>
 using namespace std;
@@ -58,6 +57,13 @@ template <class Type> Type Queue<Type>::dequeue() {
     */
     for (int i = 0; i < length - 1; i++) {
       queueArray[i] = queueArray[i + 1];
-    }
-  }
+    };
+  };
+};
+
+template <class Type> void Queue<Type>::PrintQueue() {
+  for (int i = 0; i < length; i++) {
+    cout << queueArray[i] << " ";
+    cout << endl;
+  };
 };
