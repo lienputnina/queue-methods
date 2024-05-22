@@ -6,13 +6,14 @@ template <class Type> Queue<Type>::Queue(int queueArraySize) {
 
   arraySize = queueArraySize;
   elementCount = 0;
+
   /*
   Allocating memory for Queue class object. This object will be an array with
   the size the user will provide.
   */
   queueArray = new Type[queueArraySize];
 
-  // Adding a check to see, if the memory is full. Mb mention the nullptr
+  // Adding a check to see, if the memory is full.
   if (queueArray == nullptr) {
     cout << "Not enough memory. Program is shutting down." << endl;
     exit(1); // Exiting the program if memory allocation fails
@@ -21,7 +22,7 @@ template <class Type> Queue<Type>::Queue(int queueArraySize) {
 
 template <class Type> Queue<Type>::~Queue() {
   /*
- Deallocating the previously reserved memory for the queueArray array
+ Deallocating the previously reserved memory for the queueArray
  to prevent a memory leak.
 */
   delete[] queueArray;
@@ -39,7 +40,7 @@ template <class Type> void Queue<Type>::enqueue(Type x) {
     /*
     Adding a new element at the curent position of arrayIndex.
     If arrayIndex = 0, the element is added to position 0 (first), if arrayIndex
-    = 1, the element is added to second position, etc. (write this better)
+    = 1, the element is added to second position, etc.
     */
     queueArray[elementCount++] = x;
   };
@@ -49,10 +50,17 @@ template <class Type> Type Queue<Type>::dequeue() {
   if (elementCount == 0) {
     cout << "Queue is empty. Nothing to remove." << endl;
     cout << "\n";
-    return Type(); // Return default value of Type - why?
-  } else {
 
-    // Storing the element to remove to prevent memory leaks?
+    /*
+    Returning Type() to provide a default value of 'Type'. This way the method
+    will always return a value of the correct type.
+    */
+    return Type();
+  } else {
+    /*
+    Storing the element to be removed to let the program now, which element is
+    being removed.
+    */
     Type removedElement = queueArray[0];
 
     /*
@@ -75,3 +83,11 @@ template <class Type> void Queue<Type>::PrintQueue() {
   };
   cout << "\n";
 };
+
+/*
+Explicitly instantiating the template class to avoid compilation problems in
+'main'.
+*/
+template class Queue<int>;
+template class Queue<float>;
+template class Queue<char>;

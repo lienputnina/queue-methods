@@ -1,4 +1,3 @@
-#include "Queue.cpp"
 #include "Queue.h"
 
 #include <iostream>

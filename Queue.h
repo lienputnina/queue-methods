@@ -1,15 +1,13 @@
 #ifndef Queue_h
 #define Queue_h
 
-// Pushing to remote
-
-// Declaring the template type to make this class a template class
+// Declaring the class as a template class
 template <class Type> class Queue {
 
 private:
   /*
-    Declaring a pointer to an object of the generic type "Type".
-    This will later be used as a pointer to an array
+    Declaring a pointer to a "Type" array, so the array could hold
+    different types of data.
   */
   Type *queueArray;
   int arraySize;
@@ -20,14 +18,14 @@ public:
   ~Queue();
 
   /*
-     Declaring a method with "Type" as a parameter to work with different array
-     types!
+    Declaring a method with "Type" as a parameter add different types of
+    elements to the array.
    */
   void enqueue(Type x);
 
   /*
-    Declaring a method with "Type" to use for removing elements from a "Type"
-    object. to work with different array types!
+    Declaring a method with "Type" to remove elements from arrays with
+    different types of data.
   */
   Type dequeue();
 
