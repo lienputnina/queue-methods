@@ -6,8 +6,11 @@ using namespace std;
 
 int main() {
   Queue<int> IntegerQueue(5);
-  Queue<float> FloatQueue(10);
-  Queue<char> CharacterQueue(15);
+  Queue<float> FloatQueue(5);
+  Queue<char> CharacterQueue(5);
+
+  cout << "Trying to delete the first element of the IntegerQueue:" << endl;
+  IntegerQueue.dequeue();
 
   cout << "Adding elements to IntegerQueue:" << endl;
   IntegerQueue.enqueue(1);
@@ -26,4 +29,18 @@ int main() {
 
   cout << "IntegerQueue has the following elements:" << endl;
   IntegerQueue.PrintQueue();
+  cout << "\n";
+
+  cout << "Deleting the first element of the IntegerQueue:" << endl;
+  IntegerQueue.dequeue();
+  IntegerQueue.PrintQueue();
+  cout << "\n";
+
+  cout << "IntegerQueue after deleting the first element:" << endl;
+  IntegerQueue.PrintQueue();
+  cout << "\n";
+
+  cout << "--------------" << endl;
+
+  return 0;
 }

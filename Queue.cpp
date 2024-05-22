@@ -46,19 +46,26 @@ template <class Type> void Queue<Type>::enqueue(Type x) {
 };
 
 template <class Type> Type Queue<Type>::dequeue() {
-  if (arraySize == 0) {
-    cout << "Queue empty. Nothing to remove" << endl;
+  if (elementCount == 0) {
+    cout << "Queue is empty. Nothing to remove." << endl;
+    cout << "\n";
+    return Type(); // Return default value of Type - why?
   } else {
+
+    // Storing the element to remove to prevent memory leaks?
+    Type removedElement = queueArray[0];
+
     /*
-    Iterating through the array and assigning the value of the next element to
-    the current element. This will shift all elements to the left, essentially
-    "deleting" the first element.
+    Shifting array elements to the left to "delete" the first element and fill
+    the gap
     */
     for (int i = 0; i < arraySize - 1; i++) {
       queueArray[i] = queueArray[i + 1];
     };
 
     elementCount--;
+
+    return removedElement;
   };
 };
 
