@@ -1,32 +1,21 @@
 #ifndef Queue_h
 #define Queue_h
 
-// Declaring the class as a template class
+// Declaring a template class for a generic Queue.
 template <class Type> class Queue {
 
 private:
-  /*
-    Declaring a pointer to a "Type" array, so the array could hold
-    different types of data.
-  */
   Type *queueArray;
-  int arraySize;
-  int elementCount;
+  int queueSize;    // Maximum size of the queue.
+  int elementCount; // Current number of elements in the queue.
 
 public:
-  Queue(int arraySize);
+  Queue(int queueSize);
   ~Queue();
 
-  /*
-    Declaring a method with "Type" as a parameter add different types of
-    elements to the array.
-   */
   void enqueue(Type x);
 
-  /*
-    Declaring a method with "Type" to remove elements from arrays with
-    different types of data.
-  */
+  // Method that removes and returns the first element of the queue.
   Type dequeue();
 
   void PrintQueue();
