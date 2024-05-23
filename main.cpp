@@ -32,8 +32,6 @@ int main() {
 
   cout << "Deleting the first element of the IntegerQueue:" << endl;
   IntegerQueue.dequeue();
-  IntegerQueue.PrintQueue();
-  cout << "\n";
 
   cout << "IntegerQueue after deleting the first element:" << endl;
   IntegerQueue.PrintQueue();
@@ -66,8 +64,6 @@ int main() {
 
   cout << "Deleting the first element of the FloatQueue:" << endl;
   FloatQueue.dequeue();
-  FloatQueue.PrintQueue();
-  cout << "\n";
 
   cout << "FloatQueue after deleting the first element:" << endl;
   FloatQueue.PrintQueue();
@@ -99,8 +95,6 @@ int main() {
 
   cout << "Deleting the first element of the CharacterQueue:" << endl;
   CharacterQueue.dequeue();
-  CharacterQueue.PrintQueue();
-  cout << "\n";
 
   cout << "CharacterQueue after deleting the first element:" << endl;
   CharacterQueue.PrintQueue();
