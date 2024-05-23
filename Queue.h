@@ -30,7 +30,7 @@ public:
   Type dequeue();
 
   void PrintQueue();
-  bool isArrayFull() const; // Method for checking, if the array is full
+  bool isQueueFull() const; // Method for checking, if the queue is full.
 };
 
 #endif

@@ -38,9 +38,8 @@ template <class Type> void Queue<Type>::enqueue(Type x) {
     cout << "Queue is full. Cannot add any more elements." << endl;
   } else {
     /*
-    Adding a new element at the curent position of arrayIndex.
-    If arrayIndex = 0, the element is added to position 0 (first), if arrayIndex
-    = 1, the element is added to second position, etc.
+    Adding a new element at the curent position of elementCount. If the position
+    is 0, the element will be the first, if 1, it will be second, etc.
     */
     queueArray[elementCount++] = x;
   };
