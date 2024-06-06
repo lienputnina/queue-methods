@@ -5,7 +5,7 @@
 template <class Type> class Queue {
 
 private:
-  Type *queueArray;
+  Type *queueArray; // Pointer to an array of "Type" type = "any" type
   int queueSize;    // Maximum size of the queue.
   int elementCount; // Current number of elements in the queue.
 
